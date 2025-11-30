@@ -1,6 +1,7 @@
 let allQuestions = [];
 let currentQuestionIndex = 0;
 let currentQuestions = [];
+let isProcessing = false;
 
 // Fetch questions from JSON
 async function loadQuestions() {
@@ -25,11 +26,14 @@ function showQuestion() {
 
     const question = currentQuestions[currentQuestionIndex];
     document.getElementById('questionText').textContent = question.question;
-    document.getElementById('answerText').classList.add('hidden');
+    isProcessing = false;
 }
 
 // Go to next question
 function nextQuestion() {
+    if (isProcessing) return;
+    isProcessing = true;
+
     if (currentQuestionIndex < currentQuestions.length - 1) {
         currentQuestionIndex++;
         showQuestion();
@@ -43,10 +47,14 @@ function nextQuestion() {
 function startApp() {
     document.getElementById('logoScreen').style.display = 'flex';
     document.getElementById('questionScreen').classList.add('hidden');
+    isProcessing = false;
 }
 
 // Navigate to questions
 function goToQuestions() {
+    if (isProcessing) return;
+    isProcessing = true;
+    
     currentQuestions = getRandomQuestions(5);
     currentQuestionIndex = 0;
     document.getElementById('logoScreen').style.display = 'none';
@@ -58,18 +66,40 @@ function goToQuestions() {
 function goBackToLogo() {
     document.getElementById('logoScreen').style.display = 'flex';
     document.getElementById('questionScreen').classList.add('hidden');
+    isProcessing = false;
 }
 
 // Event listeners
-document.getElementById('logoScreen').addEventListener('click', goToQuestions);
-document.getElementById('questionScreen').addEventListener('click', nextQuestion);
+const logoScreen = document.getElementById('logoScreen');
+const questionScreen = document.getElementById('questionScreen');
 
-// Keyboard navigation - any key advances
-document.addEventListener('keydown', (e) => {
-    if (document.getElementById('questionScreen').classList.contains('hidden')) return;
-    
+logoScreen.addEventListener('click', () => {
+    if (isProcessing) return;
+    goToQuestions();
+}, true);
+
+questionScreen.addEventListener('click', () => {
+    if (isProcessing) return;
     nextQuestion();
-});
+}, true);
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    // Logo screen - Enter to start
+    if (!document.getElementById('questionScreen').classList.contains('hidden')) {
+        // Question screen - any key advances
+        if (isProcessing) return;
+        e.preventDefault();
+        nextQuestion();
+    } else if (document.getElementById('logoScreen').style.display === 'flex') {
+        // Logo screen - Enter to start
+        if (e.key === 'Enter') {
+            if (isProcessing) return;
+            e.preventDefault();
+            goToQuestions();
+        }
+    }
+}, true);
 
 // Load questions when page loads
 window.addEventListener('DOMContentLoaded', () => {

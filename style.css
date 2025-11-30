@@ -33,11 +33,13 @@ body {
     text-align: center;
 }
 
-.logo-container h1 {
-    font-size: 5rem;
-    font-weight: bold;
-    letter-spacing: 3px;
+.logo-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
     cursor: pointer;
+    object-fit: contain;
 }
 
 .question-container {
