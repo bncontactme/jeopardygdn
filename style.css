@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.screen.hidden {
+    display: none;
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.logo-container h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+.question-container {
+    text-align: center;
+    padding: 40px;
+    cursor: pointer;
+}
+
+#questionText {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 60px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

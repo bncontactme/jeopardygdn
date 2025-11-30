@@ -1,0 +1,64 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "category": "Science",
+      "question": "What is the chemical symbol for gold?",
+      "answer": "Au"
+    },
+    {
+      "id": 2,
+      "category": "History",
+      "question": "In what year did the Titanic sink?",
+      "answer": "1912"
+    },
+    {
+      "id": 3,
+      "category": "Geography",
+      "question": "What is the capital of France?",
+      "answer": "Paris"
+    },
+    {
+      "id": 4,
+      "category": "Literature",
+      "question": "Who wrote 'Romeo and Juliet'?",
+      "answer": "William Shakespeare"
+    },
+    {
+      "id": 5,
+      "category": "Movies",
+      "question": "In what year was the first Avatar movie released?",
+      "answer": "2009"
+    },
+    {
+      "id": 6,
+      "category": "Sports",
+      "question": "How many players are on a basketball team on the court?",
+      "answer": "5"
+    },
+    {
+      "id": 7,
+      "category": "Music",
+      "question": "How many strings does a standard guitar have?",
+      "answer": "6"
+    },
+    {
+      "id": 8,
+      "category": "Technology",
+      "question": "What does 'HTML' stand for?",
+      "answer": "HyperText Markup Language"
+    },
+    {
+      "id": 9,
+      "category": "Math",
+      "question": "What is the square root of 144?",
+      "answer": "12"
+    },
+    {
+      "id": 10,
+      "category": "Biology",
+      "question": "How many bones are in the adult human body?",
+      "answer": "206"
+    }
+  ]
+}
