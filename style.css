@@ -63,3 +63,32 @@ body {
         opacity: 1;
     }
 }
+
+/* Screensaver styles */
+.screensaver-logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px; /* larger for screensaver */
+    height: auto;
+    will-change: transform;
+    pointer-events: none; /* clicks pass through to page activity handler */
+    transform: translate3d(0,0,0);
+}
+
+/* Screensaver container style (full black) */
+#screensaver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* Make screensaver logo responsive for small screens */
+@media (max-width: 600px) {
+    .screensaver-logo { width: 120px; }
+}
