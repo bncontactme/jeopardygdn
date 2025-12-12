@@ -14,6 +14,12 @@ let resetToStart = false;
 let ssX = 0, ssY = 0, ssVX = 0, ssVY = 0;
 let ssRAF = null;
 let ssLastTime = 0;
+// Bonus configuration
+const BONUS_CHANCE = 0.10; // 10% chance per round to swap in a bonus (less rare)
+const bonusPool = [
+    "¡Manda un saludo a GDN!",
+    "Bésense todos los de la carpa."
+];
 
 // Fetch questions from JSON
 async function loadQuestions() {
@@ -37,7 +43,14 @@ function showQuestion() {
     if (currentQuestions.length === 0) return;
 
     const question = currentQuestions[currentQuestionIndex];
-    document.getElementById('questionText').textContent = question.question;
+    const qEl = document.getElementById('questionText');
+    qEl.textContent = question.question;
+    // Apply flashy gold class to bonus questions
+    if (question.isBonus) {
+        qEl.classList.add('flashy');
+    } else {
+        qEl.classList.remove('flashy');
+    }
     isProcessing = false;
     resetIdleTimer();
 }
@@ -74,6 +87,12 @@ function goToQuestions() {
         resetToStart = false;
     } else {
         currentQuestions = getRandomQuestions(GROUP_SIZE);
+    }
+    // Very rarely, replace one of the questions with a bonus question
+    if (bonusPool.length > 0 && Math.random() < BONUS_CHANCE) {
+        const replaceIndex = Math.floor(Math.random() * currentQuestions.length);
+        const bonusText = bonusPool[Math.floor(Math.random() * bonusPool.length)];
+        currentQuestions[replaceIndex] = { id: 'bonus-' + Date.now(), question: bonusText, isBonus: true };
     }
     currentQuestionIndex = 0;
     document.getElementById('logoScreen').style.display = 'none';
