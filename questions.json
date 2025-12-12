@@ -1,16 +1,17 @@
 {
   "questions": [
-    { "id": 1, "question": "¿Con cuántas personas te piensas besar esta noche?" },
-    { "id": 2, "question": "¿Tú odias o amas a Skrillex?" },
-    { "id": 3, "question": "¿En qué año vivirías por siempre?" },
-    { "id": 4, "question": "¿Crees que Luis Miguel fingió su muerte?" },
-    { "id": 5, "question": "Arma tu propio festival: nombra a los 3 artistas que no pueden faltar." },
-    { "id": 6, "question": "Guadalajara de noche me ayudó a _____." },
-    { "id": 7, "question": "¿Quién crees que puede ser Guadalajara de Noche?" },
-    { "id": 8, "question": "¿Cuál fue tu momento más dubstep en la vida?" },
-    { "id": 9, "question": "¿Qué le dirías a Skrillex si lo tuvieras enfrente?" },
-    { "id": 10, "question": "Explica qué te hace sentir el peinado de Skrillex." },
-    { "id": 11, "question": "Si fueras presidentx por un día, ¿qué harías?" },
-    { "id": 12, "question": "Si se pusieran 1 vs 1 en una batalla de canciones de dubstep, ¿quién gana: AMLO o Claudia Sheinbaum? Justifica tu respuesta." }
+    { "id": 1, "question": "¿Con cuántas personas te besaste este año?" },
+    { "id": 2, "question": "¿En qué año vivirías por siempre y por qué?" },
+    { "id": 3, "question": "¿Crees que Juan Gabriel fingió su muerte?" },
+    { "id": 4, "question": "Arma tu propio festival: nombra a los 3 artistas que no pueden faltar." },
+    { "id": 5, "question": "Guadalajara de Noche me ayudó a _____." },
+    { "id": 6, "question": "Si fueras presidentx por un día, ¿qué harías?" },
+    { "id": 7, "question": "¿Qué opinas del concepto de fiesta que Guadalajara de Noche está proponiendo?" },
+    { "id": 8, "question": "Manda un consejo breve a tu yo del pasado." },
+    { "id": 9, "question": "¿Cuál es un mal hábito que quieras dejar morir este 2025?" },
+    { "id": 10, "question": "¿Cuál es tu lugar favorito de Guadalajara?" },
+    { "id": 11, "question": "Comparte un propósito para 2026." },
+    { "id": 12, "question": "Manda un saludo a tu mami." },
+    { "id": 13, "question": "¿Cuál es tu consejo para ligar?" }
   ]
 }
