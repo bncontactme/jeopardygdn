@@ -1,17 +1,24 @@
 {
   "questions": [
     { "id": 1, "question": "¿Con cuántas personas te besaste este año?" },
-    { "id": 2, "question": "¿En qué año vivirías por siempre y por qué?" },
-    { "id": 3, "question": "¿Crees que Juan Gabriel fingió su muerte?" },
-    { "id": 4, "question": "Arma tu propio festival: nombra a los 3 artistas que no pueden faltar." },
-    { "id": 5, "question": "Guadalajara de Noche me ayudó a _____." },
-    { "id": 6, "question": "Si fueras presidentx por un día, ¿qué harías?" },
-    { "id": 7, "question": "¿Qué opinas del concepto de fiesta que Guadalajara de Noche está proponiendo?" },
-    { "id": 8, "question": "Manda un consejo breve a tu yo del pasado." },
-    { "id": 9, "question": "¿Cuál es un mal hábito que quieras dejar morir este 2025?" },
-    { "id": 10, "question": "¿Cuál es tu lugar favorito de Guadalajara?" },
-    { "id": 11, "question": "Comparte un propósito para 2026." },
-    { "id": 12, "question": "Manda un saludo a tu mami." },
-    { "id": 13, "question": "¿Cuál es tu consejo para ligar?" }
+    { "id": 2, "question": "¿Algo que hayas hecho este año de lo que te sientas orgulloso?" },
+    { "id": 3, "question": "¿Cuál fue la mejor fiesta a la que fuiste este año?" },
+    { "id": 4, "question": "Tu opinión sobre la sobriedad:" },
+    { "id": 5, "question": "¿En qué momento del año sentiste que la ciudad te abrazó… y en cuál te escupió?" },
+    { "id": 6, "question": "¿En qué año vivirías por siempre?¿Por que?" },
+    { "id": 7, "question": "Guadalajara de Noche ________." },
+    { "id": 8, "question": "¿Qué opinas de estar cansado y aún así salir?" },
+    { "id": 9, "question": "¿Qué opinas del concepto de fiesta que Guadalajara de Noche está proponiendo?" },
+    { "id": 10, "question": "Manda un consejo breve a tu yo de inicio del 2025" },
+    { "id": 11, "question": "¿Qué cosa estás dejando morir por pura salud mental?" },
+    { "id": 12, "question": "¿Cuál es tu lugar favorito de Guadalajara?" },
+    { "id": 13, "question": "¿Qué aprendizaje de banqueta te llevas al 2026?" },
+    { "id": 14, "question": "¡Manda un saludo a GDN!", "rare": true, "isBonus": true },
+    { "id": 15, "question": "Bésense todos los de la carpa.", "rare": true, "isBonus": true },
+    { "id": 16, "question": "Manda un saludo a tu mami.", "rare": true },
+    { "id": 17, "question": "¿Cual es tu consejo para ligar?", "rare": true },
+    { "id": 18, "question": "¿Crees que Juan Gabriel fingió su muerte?", "rare": true },
+    { "id": 19, "question": "Arma tu propio festival: nombra a los 3 artistas que no pueden faltar.", "rare": true },
+    { "id": 20, "question": "Si fueras presidentx por un día, ¿qué harías?", "rare": true }
   ]
 }

@@ -14,12 +14,9 @@ let resetToStart = false;
 let ssX = 0, ssY = 0, ssVX = 0, ssVY = 0;
 let ssRAF = null;
 let ssLastTime = 0;
-// Bonus configuration
-const BONUS_CHANCE = 0.10; // 10% chance per round to swap in a bonus (less rare)
-const bonusPool = [
-    "¡Manda un saludo a GDN!",
-    "Bésense todos los de la carpa."
-];
+// Rare configuration (for EXTRAS & BONUS entries in questions.json)
+const RARE_PROBABILITY = 0.12; // 12% chance per question slot to be a 'rare' question
+const BONUS_CHANCE = 0.10; // 10% chance per round to swap in a gold (bonus) question
 
 // Fetch questions from JSON
 async function loadQuestions() {
@@ -34,8 +31,33 @@ async function loadQuestions() {
 
 // Get random questions (group size configurable)
 function getRandomQuestions(count = GROUP_SIZE) {
-    const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
+    // We pick count questions without replacement and with a bias that makes
+    // questions marked with {rare: true} less likely to be chosen.
+    const normalPool = allQuestions.filter(q => !q.rare).slice();
+    const rarePool = allQuestions.filter(q => q.rare).slice();
+    const chosen = [];
+
+    while (chosen.length < count && (normalPool.length > 0 || rarePool.length > 0)) {
+        const pickRare = Math.random() < RARE_PROBABILITY;
+        let pool = pickRare ? rarePool : normalPool;
+        // if selected pool is empty, fallback
+        if (pool.length === 0) pool = pickRare ? normalPool : rarePool;
+        if (pool.length === 0) break; // no more questions anywhere
+        const idx = Math.floor(Math.random() * pool.length);
+        const item = pool.splice(idx, 1)[0];
+        // ensure we never pick the same id twice
+        if (!chosen.find(c => c.id === item.id)) {
+            chosen.push(item);
+        }
+    }
+    // If we still don't have enough (e.g. because we ran out of normal/rare), fill with leftovers
+    const leftovers = [...normalPool, ...rarePool];
+    while (chosen.length < count && leftovers.length > 0) {
+        const idx = Math.floor(Math.random() * leftovers.length);
+        chosen.push(leftovers.splice(idx, 1)[0]);
+    }
+
+    return chosen;
 }
 
 // Show current question
@@ -88,11 +110,14 @@ function goToQuestions() {
     } else {
         currentQuestions = getRandomQuestions(GROUP_SIZE);
     }
-    // Very rarely, replace one of the questions with a bonus question
-    if (bonusPool.length > 0 && Math.random() < BONUS_CHANCE) {
-        const replaceIndex = Math.floor(Math.random() * currentQuestions.length);
-        const bonusText = bonusPool[Math.floor(Math.random() * bonusPool.length)];
-        currentQuestions[replaceIndex] = { id: 'bonus-' + Date.now(), question: bonusText, isBonus: true };
+    // Occasionally, include a bonus (gold) question from the question list
+    if (Math.random() < BONUS_CHANCE) {
+        const bonusPool = allQuestions.filter(q => q.isBonus && !currentQuestions.find(c => c.id === q.id));
+        if (bonusPool.length > 0) {
+            const replaceIndex = Math.floor(Math.random() * currentQuestions.length);
+            const bonus = bonusPool[Math.floor(Math.random() * bonusPool.length)];
+            currentQuestions[replaceIndex] = bonus;
+        }
     }
     currentQuestionIndex = 0;
     document.getElementById('logoScreen').style.display = 'none';
